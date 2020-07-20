@@ -1,0 +1,23 @@
+{
+  "name": "dianbo-rfc-server",
+  "description": "This repository is used to organize the code for dianbo-rfc.cn.",
+  "version": "0.0.0",
+  "main": "index.js",
+  "repository": "LabMemNo003/dianbo-rfc-server",
+  "private": true,
+  "dependencies": {
+    "dianbo-rfc-render": "0.0.13",
+    "dianbo-rfc-render-zh": "0.0.1",
+    "fontmin": "^0.9.8",
+    "fs-extra": "^9.0.1",
+    "minimist": "^1.2.5",
+    "minimist-options": "^4.1.0",
+    "nahan-method": "0.0.1",
+    "nahan-onion": "0.0.6",
+    "nahan-path": "^0.2.2",
+    "nahan-path-norm": "0.0.5",
+    "nahan-redirect": "0.0.1",
+    "nahan-static": "0.0.7",
+    "pug": "^3.0.0"
+  }
+}
