@@ -1,6 +1,6 @@
 {
   "name": "nahan-github-webhook",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "This repository is used to link webhook to project.",
   "main": "index.js",
   "repository": "nahanjs/nahan-github-webhook",

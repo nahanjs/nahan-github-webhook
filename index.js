@@ -1,6 +1,6 @@
 'use strict';
 
-const fse = require('fs-extra');
+const crypto = require("crypto");
 
 function Webhook(secret) {
 
@@ -15,14 +15,17 @@ function Webhook(secret) {
                     req.on('data', (chunk) => { data += chunk; });
                     req.on('end', () => { resolve(data); });
                 })})(ctx.req);   
-
-                if(data.slice(19,19+brach_name.length) === brach_name){
-                    let crypto = require("crypto");
-                    let hash='sha1=' + crypto.createHmac('sha1', secret).update(data).digest('hex'); //SHA1 decode
-                    if(signature === hash){ 
-                        // Validation successful
-                        flag = true;
+                let data_json=JSON.parse(data);
+                if(typeof data_json == 'object' && data_json ){ //Check legal JSON
+                    let ref = data_json.ref;
+                    if(ref.split('/')[2] === brach_name){
+                        let hash='sha1=' + crypto.createHmac('sha1', secret).update(data).digest('hex'); //HmacSHA1 decode
+                        if(signature === hash){ 
+                            // Validation successful
+                            flag = true;
+                        }
                     }
+
                 }
             }                    
         }
